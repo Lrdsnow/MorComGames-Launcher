@@ -1,0 +1,327 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://taskbar.gd" type="Script" id=1]
+[ext_resource path="res://Oswald-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://src/general/img/more.png" type="Texture" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://src/general/img/library.png" type="Texture" id=5]
+[ext_resource path="res://src/general/scripts/window_usr.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "LibraryTOLogo"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 102, 48.6663 ), Vector2( -0.336342, 49.263 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 147, 3 ), Vector2( 51, 3 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "LibraryTOMore"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 102, 48.6663 ), Vector2( 51.2794, 48.9646 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 147, 3 ), Vector2( 51, 3 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "MoreTOLogo"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 51.2794, 48.9646 ), Vector2( 0, 48.965 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 51, 3 ), Vector2( 51, 3 ) ]
+}
+
+[sub_resource type="DynamicFont" id=15]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.105882, 0.105882, 0.105882, 1 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0, 0, 0, 0 )
+
+[node name="main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -555.12 ],
+"_edit_use_anchors_": false
+}
+version = "v0b1"
+
+[node name="window_usr" type="Control" parent="."]
+margin_top = 52.0
+margin_right = 1024.0
+margin_bottom = 616.0
+focus_mode = 2
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleBar" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButton" type="Button" parent="TitleBar"]
+margin_left = 958.0
+margin_right = 1024.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="More" type="Button" parent="TitleBar"]
+margin_left = 51.0
+margin_right = 102.0
+margin_bottom = 52.0
+mouse_default_cursor_shape = 2
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 5 )
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="TitleBar/More"]
+position = Vector2( 26, 26 )
+scale = Vector2( 0.07, 0.07 )
+texture = ExtResource( 3 )
+
+[node name="Logo" type="Button" parent="TitleBar"]
+margin_right = 51.0
+margin_bottom = 52.0
+mouse_default_cursor_shape = 2
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 5 )
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="TitleBar/Logo"]
+position = Vector2( 26, 26 )
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TitleBar"]
+anims/LibraryTOLogo = SubResource( 9 )
+anims/LibraryTOMore = SubResource( 10 )
+anims/MoreTOLogo = SubResource( 11 )
+
+[node name="Home" type="Button" parent="TitleBar"]
+margin_left = 102.0
+margin_top = -0.33371
+margin_right = 249.0
+margin_bottom = 51.6663
+mouse_default_cursor_shape = 2
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 5 )
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="TitleBar/Home"]
+position = Vector2( 50.5472, 28.6697 )
+scale = Vector2( 0.0940512, 0.0940512 )
+texture = ExtResource( 5 )
+
+[node name="rest" type="Control" parent="TitleBar"]
+margin_left = 254.0
+margin_top = 1.0
+margin_right = 1027.0
+margin_bottom = 50.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="TitleBar"]
+margin_left = 102.0
+margin_top = 48.6663
+margin_right = 249.0
+margin_bottom = 51.6663
+mouse_filter = 2
+color = Color( 0, 0.180392, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="TitleBar"]
+show_behind_parent = true
+margin_right = 1023.0
+margin_bottom = 51.0
+rect_scale = Vector2( 1.00472, 1.01216 )
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="ColorRect" parent="TitleBar"]
+visible = false
+margin_top = 52.0
+margin_right = 249.0
+margin_bottom = 87.0
+focus_mode = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="TitleBar/Menu"]
+margin_right = 249.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 15 )
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/focus = SubResource( 14 )
+custom_styles/disabled = SubResource( 13 )
+custom_styles/normal = SubResource( 13 )
+text = " Quit"
+align = 0
+
+[node name="window" type="Control" parent="."]
+margin_top = 52.0
+margin_right = 1024.0
+margin_bottom = 616.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="mouse_entered" from="window_usr" to="." method="_on_window_usr_mouse_entered"]
+[connection signal="gui_input" from="TitleBar" to="." method="_on_TitleBar_gui_input"]
+[connection signal="pressed" from="TitleBar/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="focus_exited" from="TitleBar/More" to="." method="_on_More_focus_exited"]
+[connection signal="mouse_entered" from="TitleBar/More" to="." method="_on_More_mouse_entered"]
+[connection signal="mouse_exited" from="TitleBar/More" to="." method="_on_More_mouse_exited"]
+[connection signal="pressed" from="TitleBar/More" to="." method="_on_More_pressed"]
+[connection signal="mouse_entered" from="TitleBar/Logo" to="." method="_on_Logo_mouse_entered"]
+[connection signal="mouse_exited" from="TitleBar/Logo" to="." method="_on_Logo_mouse_exited"]
+[connection signal="pressed" from="TitleBar/Logo" to="." method="_on_Logo_pressed"]
+[connection signal="mouse_entered" from="TitleBar/Home" to="." method="_on_Home_mouse_entered"]
+[connection signal="pressed" from="TitleBar/Home" to="." method="_on_Home_pressed"]
+[connection signal="mouse_entered" from="TitleBar/rest" to="." method="_on_window_mouse_entered"]
+[connection signal="focus_exited" from="TitleBar/Menu" to="." method="_on_Menu_focus_exited"]
+[connection signal="mouse_entered" from="TitleBar/Menu" to="." method="_on_Menu_mouse_entered"]
+[connection signal="mouse_exited" from="TitleBar/Menu" to="." method="_on_Menu_mouse_exited"]
+[connection signal="focus_exited" from="TitleBar/Menu/Exit" to="." method="_on_Exit_focus_exited"]
+[connection signal="mouse_exited" from="TitleBar/Menu/Exit" to="." method="_on_Exit_mouse_exited"]
+[connection signal="pressed" from="TitleBar/Menu/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="focus_entered" from="window" to="." method="_on_window_focus_entered"]
+[connection signal="mouse_entered" from="window" to="." method="_on_window_mouse_entered"]

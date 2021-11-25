@@ -1,0 +1,146 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Oswald-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/library/main.gd" type="Script" id=2]
+[ext_resource path="res://src/general/img/morock-the-cats.png" type="Texture" id=3]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 1024
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 0.226563, 0.226563, 0.226563, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+width = 15
+
+[sub_resource type="DynamicFont" id=7]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=8]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "morock_hover"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 30.9089, 90.4726 ), Vector2( 25.2521, 80.5731 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ) ]
+}
+
+[node name="Library" type="Control"]
+use_parent_material = true
+anchor_right = 1.0
+anchor_bottom = 0.917
+margin_bottom = 0.0449829
+mouse_filter = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 512, 283.632 )
+scale = Vector2( 1, 567.264 )
+texture = SubResource( 2 )
+
+[node name="top" type="Sprite" parent="."]
+position = Vector2( 512.106, 28.7666 )
+rotation = 1.5708
+scale = Vector2( 3.83709, 1025.21 )
+texture = SubResource( 4 )
+
+[node name="OptionButton" type="OptionButton" parent="."]
+margin_left = 63.1637
+margin_top = 15.4899
+margin_right = 195.164
+margin_bottom = 40.4899
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="OptionButton"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = -33.8506
+margin_top = 0.185419
+margin_right = 6.14935
+margin_bottom = 25.1854
+custom_fonts/font = SubResource( 8 )
+text = "Sort:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 30.9089
+margin_top = 90.4726
+margin_right = 156.909
+margin_bottom = 333.473
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureButton"]
+anims/morock_hover = SubResource( 9 )
+
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_TextureButton_mouse_exited"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
