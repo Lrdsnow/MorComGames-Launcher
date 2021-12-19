@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Oswald-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/info/info.gd" type="Script" id=2]
@@ -11,39 +11,39 @@ colors = PoolColorArray( 1, 1, 1, 1 )
 gradient = SubResource( 1 )
 width = 1024
 
-[sub_resource type="Gradient" id=3]
-colors = PoolColorArray( 0.378906, 0.378906, 0.378906, 1, 1, 1, 1, 1 )
-
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
-width = 50
-
-[sub_resource type="Gradient" id=5]
-offsets = PoolRealArray( 0, 0.443709, 1 )
-colors = PoolColorArray( 1, 1, 1, 1, 0.585938, 0.585938, 0.585938, 1, 1, 1, 1, 1 )
-
-[sub_resource type="GradientTexture" id=6]
-gradient = SubResource( 5 )
-width = 50
-
-[sub_resource type="DynamicFont" id=7]
-size = 50
+[sub_resource type="DynamicFont" id=3]
+size = 33
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=4]
+size = 23
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [sub_resource type="DynamicFont" id=9]
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=10]
-size = 35
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 1 )
@@ -62,64 +62,185 @@ position = Vector2( 512, 283.632 )
 scale = Vector2( 1, 567.264 )
 texture = SubResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 25, 282.696 )
-scale = Vector2( 1, 568.127 )
-texture = SubResource( 4 )
-
-[node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 259.581, 283.39 )
-scale = Vector2( 1, 567.219 )
-texture = SubResource( 6 )
-
-[node name="info" type="Label" parent="."]
-self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 62.2957
-margin_top = 58.5202
-margin_right = 142.296
-margin_bottom = 133.52
-custom_fonts/font = SubResource( 7 )
-text = "Info"
+[node name="sc" type="ScrollContainer" parent="."]
+margin_right = 1026.0
+margin_bottom = 565.0
+scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="info"]
-margin_left = -5.66327
-margin_top = 66.0712
-margin_right = 144.337
-margin_bottom = 76.0712
-color = Color( 0.0313726, 0, 1, 1 )
+[node name="vc" type="VBoxContainer" parent="sc"]
+margin_bottom = 589.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="s1" type="Control" parent="sc/vc"]
+
+[node name="li" type="Label" parent="sc/vc/s1"]
 self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 319.0
-margin_top = 137.0
-margin_right = 984.0
-margin_bottom = 530.0
-custom_fonts/normal_font = SubResource( 8 )
-text = "Version:
-
-Please Note:
-This Launcher Is Not Complete And Is In A Pre-Alpha/Alpha Kinda Stage."
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="RichTextLabel"]
-self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 57.0819
-margin_top = -1.52588e-05
-margin_right = 97.0819
-margin_bottom = 25.0
-custom_fonts/font = SubResource( 9 )
-text = "v0"
-
-[node name="Label" type="Label" parent="."]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 317.5
-margin_top = 79.375
-margin_right = 627.5
-margin_bottom = 132.375
-custom_fonts/font = SubResource( 10 )
+margin_right = 322.0
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 3 )
 text = "Launcher Information"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="info" type="Label" parent="sc/vc/s1"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = -1.0
+margin_top = 81.0
+margin_right = 1022.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 4 )
+text = "   Version: v1.0.0 For Windows_x64"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="spacer0" type="Label" parent="sc/vc"]
+margin_top = 4.0
+margin_bottom = 154.0
+text = "
+
+
+
+
+
+
+
+"
+
+[node name="s2" type="Control" parent="sc/vc"]
+margin_top = 158.0
+margin_bottom = 158.0
+
+[node name="acc" type="Label" parent="sc/vc/s2"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_right = 135.0
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 3 )
+text = "Account"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="usr" type="Label" parent="sc/vc/s2"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = -1.0
+margin_top = 81.0
+margin_right = 1022.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 4 )
+text = "   Username: Lrdsnow"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gmgt" type="Label" parent="sc/vc/s2"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = -1.0
+margin_top = 121.0
+margin_right = 1022.0
+margin_bottom = 161.0
+custom_fonts/font = SubResource( 4 )
+text = "   Gamertag: Lrdsnow"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="email" type="Label" parent="sc/vc/s2"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = -1.0
+margin_top = 161.0
+margin_right = 1022.0
+margin_bottom = 201.0
+custom_fonts/font = SubResource( 4 )
+text = "   Email: Lrdsnow101@gmail.com"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="so" type="Button" parent="sc/vc/s2"]
+margin_left = 16.0
+margin_top = 206.0
+margin_right = 104.0
+margin_bottom = 226.0
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 6 )
+text = "Sign Out"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="spacer1" type="Label" parent="sc/vc"]
+margin_top = 162.0
+margin_bottom = 431.0
+text = "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"
+
+[node name="s3" type="Control" parent="sc/vc"]
+margin_top = 435.0
+margin_bottom = 435.0
+
+[node name="notice" type="Label" parent="sc/vc/s3"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 2.0
+margin_top = -3.0
+margin_right = 116.0
+margin_bottom = 71.0
+custom_fonts/font = SubResource( 3 )
+text = "Notice"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="txt" type="Label" parent="sc/vc/s3"]
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 1029.0
+margin_bottom = 187.0
+custom_fonts/font = SubResource( 9 )
+text = "
+
+    This Launcher Is Currently In Alpha Testing All The Games On It Are Also In Heavy Development 
+	    Please Excuse The semi Terrible Looks and animations/Bugs"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="spacer2" type="Label" parent="sc/vc"]
+margin_top = 439.0
+margin_bottom = 589.0
+text = "
+
+
+
+
+
+
+
+"
+
+[connection signal="pressed" from="sc/vc/s2/so" to="." method="_on_so_pressed"]

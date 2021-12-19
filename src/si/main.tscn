@@ -1,0 +1,314 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Oswald-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/si/main.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=2]
+size = 31
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 19
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = -5
+extra_spacing_bottom = -5
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.121569, 0.121569, 0.121569, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0, 0, 0, 0.521569 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0, 0, 0, 0 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Animation" id=11]
+resource_name = "tocgt"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("si:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("cgt:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="si" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="ColorRect" parent="."]
+margin_left = -3.0
+margin_top = 550.0
+margin_right = 1029.0
+margin_bottom = 603.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="si" type="Panel" parent="."]
+margin_left = 349.0
+margin_top = 140.0
+margin_right = 630.0
+margin_bottom = 381.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="si" type="Label" parent="si"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_right = 281.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 2 )
+text = "Sign In"
+align = 1
+valign = 1
+
+[node name="usr" type="Label" parent="si"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 46.0
+margin_top = 62.0
+margin_right = 116.0
+margin_bottom = 76.0
+text = "Username:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="usrname" type="Panel" parent="si"]
+margin_left = 44.0
+margin_top = 80.0
+margin_right = 238.0
+margin_bottom = 102.0
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="usrname" type="LineEdit" parent="si/usrname"]
+margin_left = 6.0
+margin_right = 194.0
+margin_bottom = 22.0
+custom_styles/focus = SubResource( 9 )
+custom_styles/normal = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pass" type="Label" parent="si"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 46.0
+margin_top = 105.0
+margin_right = 116.0
+margin_bottom = 119.0
+text = "Password:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="password" type="Panel" parent="si"]
+margin_left = 44.0
+margin_top = 120.0
+margin_right = 238.0
+margin_bottom = 142.0
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="password" type="LineEdit" parent="si/password"]
+margin_left = 6.0
+margin_right = 194.0
+margin_bottom = 22.0
+custom_styles/focus = SubResource( 10 )
+custom_styles/normal = SubResource( 3 )
+secret = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="login" type="Button" parent="si"]
+margin_left = 45.0
+margin_top = 165.0
+margin_right = 240.0
+margin_bottom = 193.0
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 6 )
+text = "Login"
+
+[node name="guest" type="Button" parent="si"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 45.0
+margin_top = 200.0
+margin_right = 240.0
+margin_bottom = 228.0
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 8 )
+text = "Login As Guest"
+
+[node name="in" type="Label" parent="si"]
+visible = false
+self_modulate = Color( 1, 0, 0, 1 )
+margin_left = 5.0
+margin_top = 148.0
+margin_right = 276.0
+margin_bottom = 162.0
+text = "Incorrect Username Or Password"
+align = 1
+
+[node name="cgt" type="Panel" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 348.0
+margin_top = 180.0
+margin_right = 629.0
+margin_bottom = 345.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="si" type="Label" parent="cgt"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_right = 281.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 2 )
+text = "Sign In"
+align = 1
+valign = 1
+
+[node name="name" type="Label" parent="cgt"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 46.0
+margin_top = 62.0
+margin_right = 116.0
+margin_bottom = 76.0
+text = "Name:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gamertag" type="Panel" parent="cgt"]
+margin_left = 45.0
+margin_top = 78.0
+margin_right = 239.0
+margin_bottom = 100.0
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gamertag" type="LineEdit" parent="cgt/gamertag"]
+margin_left = 6.0
+margin_right = 194.0
+margin_bottom = 22.0
+custom_styles/focus = SubResource( 9 )
+custom_styles/normal = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="confirm" type="Button" parent="cgt"]
+margin_left = 45.0
+margin_top = 118.0
+margin_right = 240.0
+margin_bottom = 146.0
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 6 )
+text = "Confirm"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ani" type="AnimationPlayer" parent="."]
+anims/tocgt = SubResource( 11 )
+
+[connection signal="text_entered" from="si/password/password" to="." method="_on_password_text_entered"]
+[connection signal="pressed" from="si/login" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="si/guest" to="." method="_on_guest_pressed"]
+[connection signal="text_entered" from="cgt/gamertag/gamertag" to="." method="_on_gamertag_text_entered"]
+[connection signal="pressed" from="cgt/confirm" to="." method="_on_confirm_pressed"]

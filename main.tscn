@@ -4,29 +4,13 @@
 [ext_resource path="res://Oswald-Bold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://src/general/img/more.png" type="Texture" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
-[ext_resource path="res://src/general/img/library.png" type="Texture" id=5]
 [ext_resource path="res://src/general/scripts/window_usr.gd" type="Script" id=6]
 
-[sub_resource type="DynamicFont" id=6]
-size = 30
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 2 )
-
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0, 0, 0, 1 )
+bg_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.6, 0.6, 0.6, 0 )
-
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.6, 0.6, 0.6, 0 )
-
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -34,11 +18,14 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 [sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 1, 1, 1, 1 )
+
 [sub_resource type="Animation" id=9]
 resource_name = "LibraryTOLogo"
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("ColorRect:rect_position")
+tracks/0/path = NodePath("bar:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -50,7 +37,7 @@ tracks/0/keys = {
 "values": [ Vector2( 102, 48.6663 ), Vector2( -0.336342, 49.263 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("ColorRect:rect_size")
+tracks/1/path = NodePath("bar:rect_size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -66,7 +53,7 @@ tracks/1/keys = {
 resource_name = "LibraryTOMore"
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("ColorRect:rect_position")
+tracks/0/path = NodePath("bar:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -78,7 +65,7 @@ tracks/0/keys = {
 "values": [ Vector2( 102, 48.6663 ), Vector2( 51.2794, 48.9646 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("ColorRect:rect_size")
+tracks/1/path = NodePath("bar:rect_size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -94,7 +81,7 @@ tracks/1/keys = {
 resource_name = "MoreTOLogo"
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("ColorRect:rect_position")
+tracks/0/path = NodePath("bar:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -106,7 +93,7 @@ tracks/0/keys = {
 "values": [ Vector2( 51.2794, 48.9646 ), Vector2( 0, 48.965 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("ColorRect:rect_size")
+tracks/1/path = NodePath("bar:rect_size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -117,6 +104,16 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 51, 3 ), Vector2( 51, 3 ) ]
 }
+
+[sub_resource type="Animation" id=18]
+resource_name = "disabled"
+length = 0.1
+
+[sub_resource type="DynamicFont" id=19]
+size = 34
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=15]
 use_mipmaps = true
@@ -132,6 +129,13 @@ bg_color = Color( 0, 0, 0, 1 )
 [sub_resource type="StyleBoxFlat" id=14]
 bg_color = Color( 0, 0, 0, 0 )
 
+[sub_resource type="Gradient" id=16]
+offsets = PoolRealArray( 0, 0.650273, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=17]
+gradient = SubResource( 16 )
+
 [node name="main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -141,7 +145,7 @@ __meta__ = {
 "_edit_horizontal_guides_": [ -555.12 ],
 "_edit_use_anchors_": false
 }
-version = "v0b1"
+version = "v1.0.0"
 
 [node name="window_usr" type="Control" parent="."]
 margin_top = 52.0
@@ -156,21 +160,6 @@ __meta__ = {
 [node name="TitleBar" type="Control" parent="."]
 margin_right = 1024.0
 margin_bottom = 50.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CloseButton" type="Button" parent="TitleBar"]
-margin_left = 958.0
-margin_right = 1024.0
-margin_bottom = 52.0
-custom_fonts/font = SubResource( 6 )
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/disabled = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
-text = "X"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -191,7 +180,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="TitleBar/More"]
-position = Vector2( 26, 26 )
+position = Vector2( 24, 30 )
 scale = Vector2( 0.07, 0.07 )
 texture = ExtResource( 3 )
 
@@ -218,6 +207,7 @@ texture = ExtResource( 4 )
 anims/LibraryTOLogo = SubResource( 9 )
 anims/LibraryTOMore = SubResource( 10 )
 anims/MoreTOLogo = SubResource( 11 )
+anims/disabled = SubResource( 18 )
 
 [node name="Home" type="Button" parent="TitleBar"]
 margin_left = 102.0
@@ -235,10 +225,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="TitleBar/Home"]
-position = Vector2( 50.5472, 28.6697 )
-scale = Vector2( 0.0940512, 0.0940512 )
-texture = ExtResource( 5 )
+[node name="lib" type="Label" parent="TitleBar/Home"]
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 146.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 19 )
+text = "Library"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="rest" type="Control" parent="TitleBar"]
 margin_left = 254.0
@@ -250,7 +246,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="TitleBar"]
+[node name="bar" type="ColorRect" parent="TitleBar"]
 margin_left = 102.0
 margin_top = 48.6663
 margin_right = 249.0
@@ -263,11 +259,11 @@ __meta__ = {
 
 [node name="ColorRect2" type="ColorRect" parent="TitleBar"]
 show_behind_parent = true
+margin_top = -15.0
 margin_right = 1023.0
 margin_bottom = 51.0
 rect_scale = Vector2( 1.00472, 1.01216 )
 mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -304,9 +300,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="fade" type="Sprite" parent="."]
+position = Vector2( 513, 59.7837 )
+rotation = 1.5708
+scale = Vector2( 0.00713523, 1026.57 )
+texture = SubResource( 17 )
+
 [connection signal="mouse_entered" from="window_usr" to="." method="_on_window_usr_mouse_entered"]
 [connection signal="gui_input" from="TitleBar" to="." method="_on_TitleBar_gui_input"]
-[connection signal="pressed" from="TitleBar/CloseButton" to="." method="_on_CloseButton_pressed"]
 [connection signal="focus_exited" from="TitleBar/More" to="." method="_on_More_focus_exited"]
 [connection signal="mouse_entered" from="TitleBar/More" to="." method="_on_More_mouse_entered"]
 [connection signal="mouse_exited" from="TitleBar/More" to="." method="_on_More_mouse_exited"]

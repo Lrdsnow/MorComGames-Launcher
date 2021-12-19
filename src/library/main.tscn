@@ -4,12 +4,12 @@
 [ext_resource path="res://src/library/main.gd" type="Script" id=2]
 [ext_resource path="res://src/general/img/morock-the-cats.png" type="Texture" id=3]
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="Gradient" id=10]
 offsets = PoolRealArray( 0 )
 colors = PoolColorArray( 1, 1, 1, 1 )
 
 [sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
+gradient = SubResource( 10 )
 width = 1024
 
 [sub_resource type="Gradient" id=3]

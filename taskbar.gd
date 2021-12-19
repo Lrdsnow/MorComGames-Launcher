@@ -4,18 +4,23 @@ var following = false
 var dragging_start_position = Vector2()
 
 var la = 1
-var cr = 1
+var cr = 0
 var udscns = 0
+var si = true
 
 export(String) var version
 
 var mnuhvd = false
 
-var crs = preload("res://src/library/main.tscn")
+var crs = preload("res://src/libTEST/main.tscn")
 
 func _ready():
-	global.version = version
-	load_scene()
+	usr.usr = "none"
+	ckusr()
+	if si == false:
+		#custom()
+		global.version = version
+		load_scene()
 
 func load_scene():
 	var usr_instance = crs.instance()
@@ -174,7 +179,45 @@ func _on_Logo_pressed():
 
 
 func _on_Home_pressed():
-	cr = 1
+	if si != true:
+		$window_usr.delete_children($window_usr)
+		var crs = preload("res://src/libTEST/main.tscn")
+		var usr_instance = crs.instance()
+		$window_usr.add_child(usr_instance)
+	else:
+		$window_usr.delete_children($window_usr)
+		var crs = preload("res://src/si/main.tscn")
+		var usr_instance = crs.instance()
+		$window_usr.add_child(usr_instance)
+
+func custom():
+	if OS.get_name() == "Windows":
+		var ps1 = OS.get_executable_path().get_base_dir() + "/Assets/custom.ps1"
+		var output = []
+		var color = OS.execute("powershell", ["-executionpolicy", "unrestricted", ps1], true, output)
+		print(output, " ", color)
+
+func ckusr():
+	usr.load()
+	if usr.usr == "none":
+		$TitleBar/Home/lib.text = "Sign In"
+		si = true
+		si()
+	else:
+		print("Already Signed In As ", usr.usrs.username)
+		si = false
+
+func si():
 	$window_usr.delete_children($window_usr)
-	crs = preload("res://src/library/main.tscn")
-	load_scene()
+	var crs = preload("res://src/si/main.tscn")
+	var usr_instance = crs.instance()
+	$window_usr.add_child(usr_instance)
+	$window_usr/si.connect("si", self, "_on_si")
+
+func _on_si():
+	$window_usr.delete_children($window_usr)
+	var crs = preload("res://src/libTEST/main.tscn")
+	var usr_instance = crs.instance()
+	$window_usr.add_child(usr_instance)
+	$window_usr/lib/bar/Account.hide()
+	$TitleBar/Home/lib.text = "Library"

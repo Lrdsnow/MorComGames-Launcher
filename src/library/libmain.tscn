@@ -1,0 +1,235 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Oswald-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/library/catz.png" type="Texture" id=2]
+[ext_resource path="res://src/library/section 1.gd" type="Script" id=3]
+[ext_resource path="res://src/library/section 2.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "morock_hover"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 30.9089, 90.4726 ), Vector2( 25.2521, 80.5731 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "morock_hover"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 30.9089, 90.4726 ), Vector2( 43, 75 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ) ]
+}
+
+[node name="lib" type="Control"]
+margin_left = 200.0
+margin_right = 1024.0
+margin_bottom = 563.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sc" type="ScrollContainer" parent="."]
+margin_right = 824.0
+margin_bottom = 558.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vc" type="VBoxContainer" parent="sc"]
+margin_bottom = 341.0
+
+[node name="s1" type="Control" parent="sc/vc"]
+script = ExtResource( 3 )
+
+[node name="rg" type="Label" parent="sc/vc/s1"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 18.0
+margin_top = 20.0
+margin_right = 176.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 1 )
+text = "Recommended Games:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="morock" type="TextureButton" parent="sc/vc/s1"]
+margin_left = 30.9089
+margin_top = 90.4726
+margin_right = 156.909
+margin_bottom = 333.473
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="sc/vc/s1/morock"]
+anims/morock_hover = SubResource( 2 )
+
+[node name="spacer" type="Label" parent="sc/vc"]
+margin_top = 4.0
+margin_bottom = 341.0
+text = "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"
+
+[node name="s2" type="Control" parent="sc/vc"]
+visible = false
+margin_top = 345.0
+margin_bottom = 345.0
+script = ExtResource( 4 )
+
+[node name="az" type="Label" parent="sc/vc/s2"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 18.0
+margin_top = 20.0
+margin_right = 176.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 1 )
+text = "All Games A-Z:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="morock2" type="TextureButton" parent="sc/vc/s2"]
+margin_left = 43.0
+margin_top = 75.0
+margin_right = 169.0
+margin_bottom = 318.0
+rect_scale = Vector2( 1.1, 1.1 )
+rect_pivot_offset = Vector2( 199.091, -102.473 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="sc/vc/s2/morock2"]
+anims/morock_hover = SubResource( 3 )
+
+[node name="spacer2" type="Label" parent="sc/vc"]
+visible = false
+margin_top = 345.0
+margin_bottom = 699.0
+text = "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"
+
+[connection signal="mouse_entered" from="sc/vc/s1/morock" to="sc/vc/s1" method="_on_morock_mouse_entered"]
+[connection signal="mouse_exited" from="sc/vc/s1/morock" to="sc/vc/s1" method="_on_morock_mouse_exited"]
+[connection signal="pressed" from="sc/vc/s1/morock" to="sc/vc/s1" method="_on_morock_pressed"]
+[connection signal="mouse_entered" from="sc/vc/s2/morock2" to="sc/vc/s2" method="_on_morock2_mouse_entered"]
+[connection signal="mouse_exited" from="sc/vc/s2/morock2" to="sc/vc/s2" method="_on_morock2_mouse_exited"]
+[connection signal="pressed" from="sc/vc/s2/morock2" to="sc/vc/s1" method="_on_morock2_pressed"]

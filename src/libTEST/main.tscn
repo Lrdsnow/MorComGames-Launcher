@@ -1,0 +1,220 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://src/libTEST/main.gd" type="Script" id=1]
+[ext_resource path="res://Oswald-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://src/libTEST/hover.tres" type="StyleBox" id=3]
+[ext_resource path="res://src/libTEST/clear.tres" type="StyleBox" id=4]
+[ext_resource path="res://src/libTEST/window.gd" type="Script" id=5]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 1024
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 18
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Gradient" id=7]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+width = 10
+
+[sub_resource type="DynamicFont" id=9]
+size = 14
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = -5
+extra_spacing_bottom = -5
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.188235, 0.188235, 0.188235, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[node name="lib" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bg" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="Sprite" parent="bg"]
+position = Vector2( 512, 283.632 )
+scale = Vector2( 1, 567.264 )
+texture = SubResource( 2 )
+
+[node name="ColorRect2" type="ColorRect" parent="bg"]
+margin_left = 190.0
+margin_right = 200.0
+margin_bottom = 590.0
+rect_pivot_offset = Vector2( -230, 213 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="ColorRect" parent="bg"]
+margin_left = -3.0
+margin_top = 550.0
+margin_right = 1029.0
+margin_bottom = 603.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="usr" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="window" type="Control" parent="usr"]
+margin_left = -2.0
+margin_right = 1024.0
+margin_bottom = 563.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sort" type="OptionButton" parent="usr"]
+margin_left = 11.0
+margin_top = 14.0
+margin_right = 179.0
+margin_bottom = 47.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="usr"]
+margin_top = 67.0
+margin_right = 192.0
+margin_bottom = 568.0
+grow_horizontal = 2
+grow_vertical = 0
+follow_focus = true
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="usr/ScrollContainer"]
+margin_right = 191.0
+margin_bottom = 36.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="morock" type="Button" parent="usr/ScrollContainer/VBoxContainer"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_right = 191.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 6 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 4 )
+text = "   Morock                        "
+align = 0
+
+[node name="bar" type="ColorRect" parent="."]
+margin_left = -3.0
+margin_top = 518.0
+margin_right = 190.0
+margin_bottom = 551.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="bar"]
+position = Vector2( 0, -32 )
+rotation = -1.5708
+scale = Vector2( 1, 192.533 )
+texture = SubResource( 8 )
+centered = false
+
+[node name="ag" type="Button" parent="bar"]
+margin_left = 10.0
+margin_top = 1.0
+margin_right = 187.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 9 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/focus = SubResource( 12 )
+custom_styles/disabled = SubResource( 13 )
+custom_styles/normal = SubResource( 11 )
+text = "Add Non MCG Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Account" type="Button" parent="bar"]
+margin_left = 10.0
+margin_top = -30.0
+margin_right = 187.0
+margin_bottom = -5.0
+custom_fonts/font = SubResource( 9 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/focus = SubResource( 12 )
+custom_styles/disabled = SubResource( 13 )
+custom_styles/normal = SubResource( 11 )
+text = "Account"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="usr/ScrollContainer/VBoxContainer/morock" to="." method="_on_morock_pressed"]
